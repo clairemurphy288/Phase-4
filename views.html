@@ -32,7 +32,7 @@
 
 <div class="button-grid">
   <button class="button" onclick="redirectToCustomerCreditCheck()">Customer Credit Check</button>
-  <button class="button">Drone Pilot Roster</button>
+  <button class="button" onclick="redirectToDronePilotRoster()">Drone Pilot Roster</button>
   <button class="button">Drone Traffic Control</button>
   <button class="button">Most Popular Products</button>
   <button class="button">Orders In Progress</button>
@@ -42,8 +42,12 @@
 
 <script>
     function redirectToCustomerCreditCheck() {
-      // Redirect to the 'customers.html' page
+      // Redirect to the 'customer_credit_check.html' page
       window.location.href = '/customer_credit_check';
+    }
+    function redirectToDronePilotRoster() {
+      // Redirect to the 'drone_pilot_roster.html' page
+      window.location.href = '/drone_pilot_roster';
     }
   </script>
 

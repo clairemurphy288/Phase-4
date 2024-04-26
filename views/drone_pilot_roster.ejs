@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 4</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Credit Check</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Pilot</th>
+                <th>License ID</th>
+                <th>Drone Serves Store</th>
+                <th>Drone Tag</th>
+                <th>Successful Deliveries</th>
+                <th>Pending Deliveries</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item => { %>
+                <tr>
+                    <td><%= item.pilot %></td>
+                    <td><%= item.licenseID %></td>
+                    <td><%= item.drone_serves_store %></td>
+                    <td><%= item.drone_tag %></td>
+                    <td><%= item.successful_deliveries %></td>
+                    <td><%= item.pending_deliveries %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

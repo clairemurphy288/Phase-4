@@ -89,7 +89,21 @@ app.post('/add_customer', (req, res) => {
     });
 });
 
+app.get('/drone_pilot_roster', (req, res) => {
+    // Query the database to get customer credit check data
+    connection.query('SELECT * FROM drone_pilot_roster', (error, results, fields) => {
+        if (error) {
+            console.error('Error querying view: ' + error);
+            res.status(500).send('Error querying view');
+            return;
+        }
+        console.log('Results from view:');
+        console.log(results);
 
+        // Render the EJS template with the retrieved data
+        res.render('drone_pilot_roster', { data: results });
+    });
+});
 
 
 
