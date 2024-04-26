@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button Grid</title>
+<style>
+    .button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+    <h1>Drone Dispatch System</h1>
+
+<div class="button-grid">
+  <button class="button" onclick="redirectToCustomers()">Customers</button>
+  <button class="button">Drones</button>
+  <button class="button">Orders</button>
+  <button class="button">Products</button>
+  <button class="button">Pilots</button>
+  <button class="button" onclick="redirectToViews()">Views</button>
+</div>
+
+<script>
+    function redirectToCustomers() {
+      // Redirect to the 'customers.html' page
+      window.location.href = '/customers';
+    }
+
+    function redirectToViews() {
+      window.location.href = '/views';
+
+    }
+  </script>
+
+</body>
+</html>
