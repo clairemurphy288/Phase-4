@@ -20,27 +20,29 @@
     </style>
 </head>
 <body>
-    <h1>Drone Pilot Roster</h1>
+    <h1>Drone Traffic Control</h1>
     <table>
         <thead>
             <tr>
-                <th>Pilot</th>
-                <th>License ID</th>
                 <th>Drone Serves Store</th>
                 <th>Drone Tag</th>
-                <th>Successful Deliveries</th>
-                <th>Pending Deliveries</th>
+                <th>Pilot</th>
+                <th>Total Weight Allowed</th>
+                <th>Current Weight</th>
+                <th>Deliveries Allowed</th>
+                <th>Deliveries In Progress</th>
             </tr>
         </thead>
         <tbody>
             <% data.forEach(item => { %>
                 <tr>
-                    <td><%= item.pilot %></td>
-                    <td><%= item.licenseID %></td>
                     <td><%= item.drone_serves_store %></td>
                     <td><%= item.drone_tag %></td>
-                    <td><%= item.successful_deliveries %></td>
-                    <td><%= item.pending_deliveries %></td>
+                    <td><%= item.pilot %></td>
+                    <td><%= item.total_weight_allowed %></td>
+                    <td><%= item.current_weight %></td>
+                    <td><%= item.deliveries_allowed %></td>
+                    <td><%= item.deliveries_in_progress %></td>
                 </tr>
             <% }); %>
         </tbody>

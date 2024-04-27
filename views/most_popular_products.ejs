@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 4</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Most Popular Products</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Barcode</th>
+                <th>Product Name</th>
+                <th>Weight</th>
+                <th>Lowest Price</th>
+                <th>Highest Price</th>
+                <th>Lowest Quantity</th>
+                <th>Highest quantity</th>
+                <th>Total quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item => { %>
+                <tr>
+                    <td><%= item.barcode %></td>
+                    <td><%= item.product_name %></td>
+                    <td><%= item.weight %></td>
+                    <td><%= item.lowest_price %></td>
+                    <td><%= item.highest_price %></td>
+                    <td><%= item.lowest_quantity %></td>
+                    <td><%= item.highest_quantity %></td>
+                    <td><%= item.total_quantity %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
