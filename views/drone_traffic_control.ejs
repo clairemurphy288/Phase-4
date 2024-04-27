@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 4</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drone Traffic Control</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Drone Serves Store</th>
+                <th>Drone Tag</th>
+                <th>Pilot</th>
+                <th>Total Weight Allowed</th>
+                <th>Current Weight</th>
+                <th>Deliveries Allowed</th>
+                <th>Deliveries In Progress</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item => { %>
+                <tr>
+                    <td><%= item.drone_serves_store %></td>
+                    <td><%= item.drone_tag %></td>
+                    <td><%= item.pilot %></td>
+                    <td><%= item.total_weight_allowed %></td>
+                    <td><%= item.current_weight %></td>
+                    <td><%= item.deliveries_allowed %></td>
+                    <td><%= item.deliveries_in_progress %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

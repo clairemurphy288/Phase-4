@@ -32,18 +32,42 @@
 
 <div class="button-grid">
   <button class="button" onclick="redirectToCustomerCreditCheck()">Customer Credit Check</button>
-  <button class="button">Drone Pilot Roster</button>
-  <button class="button">Drone Traffic Control</button>
-  <button class="button">Most Popular Products</button>
-  <button class="button">Orders In Progress</button>
-  <button class="button">Role Distribution</button>
-  <button class="button">Store Sales Overview</button>
+  <button class="button" onclick="redirectToDronePilotRoster()">Drone Pilot Roster</button>
+  <button class="button" onclick="redirectToDroneTrafficControl()">Drone Traffic Control</button>
+  <button class="button" onclick="redirectToMostPopularProducts()">Most Popular Products</button>
+  <button class="button" onclick="redirectToOrdersInProgress()">Orders In Progress</button>
+  <button class="button" onclick="redirectToRoleDistribution()">Role Distribution</button>
+  <button class="button" onclick="redirectToStoreSalesOverview()">Store Sales Overview</button>
 </div>
 
 <script>
     function redirectToCustomerCreditCheck() {
-      // Redirect to the 'customers.html' page
+      // Redirect to the 'customer_credit_check.html' page
       window.location.href = '/customer_credit_check';
+    }
+    function redirectToDronePilotRoster() {
+      // Redirect to the 'drone_pilot_roster.html' page
+      window.location.href = '/drone_pilot_roster';
+    }
+    function redirectToDroneTrafficControl() {
+      // Redirect to the 'drone_traffic_control.html' page
+      window.location.href = '/drone_traffic_control';
+    }
+    function redirectToMostPopularProducts() {
+      // Redirect to the 'most_popular_products.html' page
+      window.location.href = '/most_popular_products';
+    }
+    function redirectToOrdersInProgress() {
+      // Redirect to the 'orders_in_progress.html' page
+      window.location.href = '/orders_in_progress';
+    }
+    function redirectToRoleDistribution() {
+      // Redirect to the 'role_distribution.html' page
+      window.location.href = '/role_distribution';
+    }
+    function redirectToStoreSalesOverview() {
+      // Redirect to the 'store_sales_overview.html' page
+      window.location.href = '/store_sales_overview';
     }
   </script>
 

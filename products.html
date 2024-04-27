@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Add some styling for the form */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Products!</h1>
+
+    <h2>Add Product</h2>
+    <form action="/add_product" method="post">
+        <label for="barcode">Barcode:</label>
+        <input type="text" id="barcode" name="barcode" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" min="0" required>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Remove Product</h2>
+    <form action="/remove_product" method="post">
+        <label for="remove_barcode">Barcode:</label>
+        <input type="text" id="remove_barcode" name="remove_barcode" required>
+
+        <input type="submit" value="Remove Product">
+    </form>
+</body>
+</html>

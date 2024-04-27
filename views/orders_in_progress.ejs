@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 4</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Orders In Progress</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Cost</th>
+                <th>Num Products</th>
+                <th>Payload</th>
+                <th>Contents</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item => { %>
+                <tr>
+                    <td><%= item.orderID %></td>
+                    <td><%= item.cost %></td>
+                    <td><%= item.num_products %></td>
+                    <td><%= item.payload %></td>
+                    <td><%= item.contents %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
