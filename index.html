@@ -33,9 +33,9 @@
 <div class="button-grid">
   <button class="button" onclick="redirectToCustomers()">Customers</button>
   <button class="button" onclick="redirectToDrones()">Drones</button>
-  <button class="button">Orders</button>
+  <button class="button" onclick="redirectToOrders()">Orders</button>
   <button class="button" onclick="redirectToProducts()">Products</button>
-  <button class="button">Pilots</button>
+  <button class="button" onclick="redirectToPilots()">Pilots</button>
   <button class="button" onclick="redirectToViews()">Views</button>
 </div>
 
@@ -48,8 +48,16 @@
       // Redirect to the 'drones.html' page
       window.location.href = '/drones';
     }
+    function redirectToPilots() {
+      window.location.href = '/pilots';
+
+    }
     function redirectToProducts() {
       window.location.href = '/products';
+
+    }
+    function redirectToOrders() {
+      window.location.href = '/orders';
 
     }
     function redirectToViews() {
