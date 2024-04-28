@@ -184,7 +184,7 @@ app.post('/add_customer', (req, res) => {
 
   });
 
-  app.post('/repaire_refuel_drone', (req, res) => {
+  app.post('/repair_refuel_drone', (req, res) => {
     const data = req.body;
     
     console.log(data)
@@ -332,7 +332,7 @@ app.post('/add_customer', (req, res) => {
   
     // Remove customer
     connection.query('call remove_customer (?)',
-     [data.username], (error, results, fields) => {
+     [data.remove_username], (error, results, fields) => {
       if (error) {
         console.error('Error removing customer: ' + error);
         res.status(500).json({ error: 'Error removing customer' });
@@ -354,7 +354,7 @@ app.post('/add_customer', (req, res) => {
   
     // Remove drone pilot
     connection.query('call remove_drone_pilot (?)',
-     [data.username], (error, results, fields) => {
+     [data.remove_username], (error, results, fields) => {
       if (error) {
         console.error('Error removing drone pilot: ' + error);
         res.status(500).json({ error: 'Error removing drone pilot' });
@@ -375,8 +375,8 @@ app.post('/add_customer', (req, res) => {
 
   
     // Remove drone
-    connection.query('call remove_drone (?)',
-     [data.storeID, data.droneTag], (error, results, fields) => {
+    connection.query('call remove_drone (?, ?)',
+     [data.remove_storeID, data.remove_droneTag], (error, results, fields) => {
       if (error) {
         console.error('Error removing drone: ' + error);
         res.status(500).json({ error: 'Error removing drone' });
@@ -398,7 +398,7 @@ app.post('/add_customer', (req, res) => {
   
     // Remove product
     connection.query('call remove_product (?)',
-     [data.barcode], (error, results, fields) => {
+     [data.remove_barcode], (error, results, fields) => {
       if (error) {
         console.error('Error removing product: ' + error);
         res.status(500).json({ error: 'Error removing product' });
