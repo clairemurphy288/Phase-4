@@ -47,9 +47,19 @@ app.get('/drones', (req, res) => {
     res.sendFile(__dirname + '/drones.html');
 });
 
+app.get('/pilots', (req, res) => {
+
+  res.sendFile(__dirname + '/pilots.html');
+});
+
 app.get('/products', (req, res) => {
 
     res.sendFile(__dirname + '/products.html');
+});
+
+app.get('/orders', (req, res) => {
+
+  res.sendFile(__dirname + '/orders.html');
 });
 
 app.get('/views', (req, res) => {
@@ -81,6 +91,30 @@ app.post('/add_customer', (req, res) => {
 
   });
 
+  app.post('/increase_customer_credits', (req, res) => {
+    const data = req.body;
+    
+    console.log(data)
+
+  
+    // Perform the MySQL query to insert the new customer
+    connection.query('call increase_customer_credits (?, ?)',
+     [data.uname, data.money], (error, results, fields) => {
+      if (error) {
+        console.error('Error increasing customer credits: ' + error);
+        res.status(500).json({ error: 'Error increasing customer credits' });
+        return;
+      }
+      
+      // Send a success response
+    //   res.status(200).json({ message: 'Customer added successfully' });
+    });
+
+
+    res.sendFile(__dirname + '/customers.html');
+
+  });
+
   // Add drone pilot
   app.post('/add_drone_pilot', (req, res) => {
     const data = req.body;
@@ -100,7 +134,171 @@ app.post('/add_customer', (req, res) => {
     });
 
 
+    res.sendFile(__dirname + '/pilots.html');
+
+  });
+
+  app.post('/add_drone', (req, res) => {
+    const data = req.body;
+    
+    console.log(data)
+
+  
+    // Perform the MySQL query to insert the new customer
+    connection.query('call add_drone (?, ?, ?, ?, ?)',
+     [data.storeID, data.droneTag, data.capacity, data.remaining_trips, data.pilot], (error, results, fields) => {
+      if (error) {
+        console.error('Error adding drone: ' + error);
+        res.status(500).json({ error: 'Error adding drone' });
+        return;
+      }
+      
+      // Send a success response
+    //   res.status(200).json({ message: 'Customer added successfully' });
+    });
+
+
     res.sendFile(__dirname + '/drones.html');
+
+  });
+
+  app.post('/swap_drone_control', (req, res) => {
+    const data = req.body;
+    
+    console.log(data)
+
+  
+    // Swap drone control
+    connection.query('call swap_drone_control (?, ?)',
+     [data.incoming_pilot, data.outgoing_pilot], (error, results, fields) => {
+      if (error) {
+        console.error('Error swapping drone control: ' + error);
+        res.status(500).json({ error: 'Error swapping drone control' });
+        return;
+      }
+      
+    });
+
+
+    res.sendFile(__dirname + '/drones.html');
+
+  });
+
+  app.post('/repaire_refuel_drone', (req, res) => {
+    const data = req.body;
+    
+    console.log(data)
+
+  
+    // Repair refuel drone
+    connection.query('call repair_refuel_drone (?, ?, ?)',
+     [data.drone_store, data.drone_tag, data.refueled_trips], (error, results, fields) => {
+      if (error) {
+        console.error('Error repairing and refueling drone: ' + error);
+        res.status(500).json({ error: 'Error repairing and refueling drone' });
+        return;
+      }
+      
+    });
+
+
+    res.sendFile(__dirname + '/drones.html');
+
+  });
+
+  app.post('/begin_order', (req, res) => {
+    const data = req.body;
+    
+    console.log(data)
+
+  
+    
+    connection.query('call begin_order (?, ?, ?, ?, ?, ?, ?, ?)',
+     [data.orderID, data.sold_on, data.purchased_by, data.carrier_store, data.carrier_tag, data.product_barcode, data.product_price, data.product_quantity], (error, results, fields) => {
+      if (error) {
+        console.error('Error beginning order: ' + error);
+        res.status(500).json({ error: 'Error beginning order' });
+        return;
+      }
+      
+      // Send a success response
+    //   res.status(200).json({ message: 'Customer added successfully' });
+    });
+
+
+    res.sendFile(__dirname + '/orders.html');
+
+  });
+
+  app.post('/add_order_line', (req, res) => {
+    const data = req.body;
+    
+    console.log(data)
+
+  
+    
+    connection.query('call add_order_line (?, ?, ?, ?)',
+     [data.orderID, data.product_barcode, data.product_price, data.product_quantity], (error, results, fields) => {
+      if (error) {
+        console.error('Error adding order line: ' + error);
+        res.status(500).json({ error: 'Error adding order line' });
+        return;
+      }
+      
+      // Send a success response
+    //   res.status(200).json({ message: 'Customer added successfully' });
+    });
+
+
+    res.sendFile(__dirname + '/orders.html');
+
+  });
+
+  app.post('/deliver_order', (req, res) => {
+    const data = req.body;
+    
+    console.log(data)
+
+  
+    
+    connection.query('call deliver_order (?)',
+     [data.orderID], (error, results, fields) => {
+      if (error) {
+        console.error('Error delivering order: ' + error);
+        res.status(500).json({ error: 'Error delivering order' });
+        return;
+      }
+      
+      // Send a success response
+    //   res.status(200).json({ message: 'Customer added successfully' });
+    });
+
+
+    res.sendFile(__dirname + '/orders.html');
+
+  });
+
+  app.post('/cancel_order', (req, res) => {
+    const data = req.body;
+    
+    console.log(data)
+
+  
+    
+    connection.query('call cancel_order (?)',
+     [data.orderID], (error, results, fields) => {
+      if (error) {
+        console.error('Error cancelling order: ' + error);
+        res.status(500).json({ error: 'Error cancelling order' });
+        return;
+      }
+      
+      // Send a success response
+    //   res.status(200).json({ message: 'Customer added successfully' });
+    });
+
+
+    res.sendFile(__dirname + '/orders.html');
 
   });
 
@@ -160,6 +358,28 @@ app.post('/add_customer', (req, res) => {
       if (error) {
         console.error('Error removing drone pilot: ' + error);
         res.status(500).json({ error: 'Error removing drone pilot' });
+        return;
+      }
+      
+    });
+
+
+    res.sendFile(__dirname + '/pilots.html');
+
+  });
+
+  app.post('/remove_drone', (req, res) => {
+    const data = req.body;
+    
+    console.log(data)
+
+  
+    // Remove drone
+    connection.query('call remove_drone (?)',
+     [data.storeID, data.droneTag], (error, results, fields) => {
+      if (error) {
+        console.error('Error removing drone: ' + error);
+        res.status(500).json({ error: 'Error removing drone' });
         return;
       }
       

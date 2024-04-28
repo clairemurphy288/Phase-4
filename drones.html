@@ -6,13 +6,13 @@
     <title>Document</title>
 
     <style>
-        /* Add some styling for the form */
         form {
             max-width: 500px;
             margin: 0 auto;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            margin-bottom: 20px;
         }
         label {
             display: block;
@@ -41,49 +41,62 @@
 </head>
 
 <body>
-    <h1>Drone Pilot!</h1>
+    <h1>Drones!</h1>
 
-    <h2>Add Drone Pilot</h2>
-    <form action="/add_drone_pilot" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <h2>Add Drone</h2>
+    <form action="/add_drone" method="post">
+        <label for="storeID">Store ID:</label>
+        <input type="text" id="storeID" name="storeID" required>
 
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required>
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" name="capacity" min="0" required>
 
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required>
+        <label for="pilot">Pilot:</label>
+        <input type="text" id="pilot" name="pilot" required>
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
+        <label for="droneTag">Drone Tag:</label>
+        <input type="text" id="droneTag" name="droneTag" required>
 
-        <label for="birthdate">Birthdate:</label>
-        <input type="date" id="birthdate" name="birthdate" required>
+        <label for="remaining_trips">Remaining Trips:</label>
+        <input type="number" id="remaining_trips" name="remaining_trips" min="0" required>
 
-        <label for="taxID">Tax ID:</label>
-        <input type="text" id="taxID" name="taxID" required>
-
-        <label for="service">Service:</label>
-        <input type="text" id="service" name="service" required>
-
-        <label for="salary">Salary:</label>
-        <input type="number" id="salary" name="salary" min="0" required>
-
-        <label for="licenseID">License ID:</label>
-        <input type="text" id="licenseID" name="licenseID" required>
-
-        <label for="experience">Experience (years):</label>
-        <input type="number" id="experience" name="experience" min="0" required>
-
-        <input type="submit" value="Submit">
+        <input type="submit" value="Add Drone">
     </form>
 
-    <h2>Remove Drone Pilot</h2>
-    <form action="/remove_drone_pilot" method="post">
-        <label for="remove_username">Username:</label>
-        <input type="text" id="remove_username" name="remove_username" required>
+    <h2>Remove Drone</h2>
+    <form action="/remove_drone" method="post">
+        <label for="remove_storeID">Store ID:</label>
+        <input type="text" id="remove_storeID" name="remove_storeID" required>
 
-        <input type="submit" value="Remove Drone Pilot">
+        <label for="remove_droneTag">Drone Tag:</label>
+        <input type="text" id="remove_droneTag" name="remove_droneTag" required>
+
+        <input type="submit" value="Remove Drone">
+    </form>
+
+    <h2>Swap Drone Control</h2>
+    <form action="/swap_drone_control" method="post">
+        <label for="incoming_pilot">Incoming Pilot:</label>
+        <input type="text" id="incoming_pilot" name="incoming_pilot" required>
+
+        <label for="outgoing_pilot">Outgoing Pilot:</label>
+        <input type="text" id="outgoing_pilot" name="outgoing_pilot" required>
+
+        <input type="submit" value="Swap Control">
+    </form>
+
+    <h2>Repair and Refuel Drone</h2>
+    <form action="/repair_refuel_drone" method="post">
+        <label for="drone_store">Drone Store:</label>
+        <input type="text" id="drone_store" name="drone_store" required>
+
+        <label for="refueled_trips">Refueled Trips:</label>
+        <input type="number" id="refueled_trips" name="refueled_trips" min="0" required>
+
+        <label for="drone_tag">Drone Tag:</label>
+        <input type="text" id="drone_tag" name="drone_tag" required>
+
+        <input type="submit" value="Repair and Refuel">
     </form>
 </body>
 </html>
