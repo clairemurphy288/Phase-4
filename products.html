@@ -44,6 +44,7 @@
 </head>
 
 <body>
+    <button id="homeButton" style="position: absolute; top: 20px; left: 20px;">Home</button>
     <h1>Products!</h1>
 
     <h2>Add Product</h2>
@@ -67,5 +68,11 @@
 
         <input type="submit" value="Remove Product">
     </form>
+    <script>
+        document.getElementById("homeButton").addEventListener("click", function() {
+            // Redirect to localhost
+            window.location.href = "http://localhost:3000/";
+        });
+    </script>
 </body>
 </html>

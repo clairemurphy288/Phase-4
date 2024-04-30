@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drone Dispatch System</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drone Dispatch System</title>
+  <style>
     .button-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    text-align: center;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  h1, h2 {
-    text-align: center;
-  }
-</style>
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      text-align: center;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Drone Dispatch System</h1>
+  <button id="homeButton" style="position: absolute; top: 20px; left: 20px;">Home</button>
+  <h1>Drone Dispatch System</h1>
 
-<div class="button-grid">
-  <button class="button" onclick="redirectToCustomerCreditCheck()">Customer Credit Check</button>
-  <button class="button" onclick="redirectToDronePilotRoster()">Drone Pilot Roster</button>
-  <button class="button" onclick="redirectToDroneTrafficControl()">Drone Traffic Control</button>
-  <button class="button" onclick="redirectToMostPopularProducts()">Most Popular Products</button>
-  <button class="button" onclick="redirectToOrdersInProgress()">Orders In Progress</button>
-  <button class="button" onclick="redirectToRoleDistribution()">Role Distribution</button>
-  <button class="button" onclick="redirectToStoreSalesOverview()">Store Sales Overview</button>
-</div>
+  <div class="button-grid">
+    <button class="button" onclick="redirectToCustomerCreditCheck()">Customer Credit Check</button>
+    <button class="button" onclick="redirectToDronePilotRoster()">Drone Pilot Roster</button>
+    <button class="button" onclick="redirectToDroneTrafficControl()">Drone Traffic Control</button>
+    <button class="button" onclick="redirectToMostPopularProducts()">Most Popular Products</button>
+    <button class="button" onclick="redirectToOrdersInProgress()">Orders In Progress</button>
+    <button class="button" onclick="redirectToRoleDistribution()">Role Distribution</button>
+    <button class="button" onclick="redirectToStoreSalesOverview()">Store Sales Overview</button>
+  </div>
 
-<script>
+  <script>
     function redirectToCustomerCreditCheck() {
       // Redirect to the 'customer_credit_check.html' page
       window.location.href = '/customer_credit_check';
@@ -72,7 +77,17 @@
       // Redirect to the 'store_sales_overview.html' page
       window.location.href = '/store_sales_overview';
     }
+
+
+
+
+    document.getElementById("homeButton").addEventListener("click", function () {
+      // Redirect to localhost
+      window.location.href = "http://localhost:3000/";
+    });
   </script>
 
+
 </body>
+
 </html>

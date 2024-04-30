@@ -44,6 +44,7 @@
 </head>
 
 <body>
+    <button id="homeButton" style="position: absolute; top: 20px; left: 20px;">Home</button>
     <h1>Drone Pilot!</h1>
 
     <h2>Add Drone Pilot</h2>
@@ -88,5 +89,11 @@
 
         <input type="submit" value="Remove Drone Pilot">
     </form>
+    <script>
+        document.getElementById("homeButton").addEventListener("click", function() {
+            // Redirect to localhost
+            window.location.href = "http://localhost:3000/";
+        });
+    </script>
 </body>
 </html>
